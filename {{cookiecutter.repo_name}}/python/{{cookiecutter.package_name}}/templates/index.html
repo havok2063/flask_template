@@ -1,0 +1,64 @@
+{{ "{%" }}extends "layout.html"{{ "%}" }}
+
+{{ "{%" }}block body{{ "%}" }}
+
+
+    <!-- Splash Page -->
+    {# Splash Page #}
+    <div class="intro-header">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>Welcome to {{cookiecutter.package_name}}</h1>
+                        <hr class="intro-divider">
+                        <h3>Starting your app here...</h3>
+                        <hr class="intro-divider">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.intro-header -->
+
+    <section id="sec-content" class="bg-white">
+
+        <div class='well'>
+          <div class="row">
+            <div class="col-lg-4">
+              <h2><i class="fa fa-code"></i> Bootstrap 4</h2>
+              <p>Sleek, intuitive, and powerful mobile-first front-end framework for faster and easier web development.</p>
+              <p><a class="btn btn-default" href="http://getbootstrap.com/">Official website &raquo;</a></p>
+            </div>
+          </div><!-- /.row -->
+        </div>
+
+    </section>
+
+
+{{ "{%" }}endblock body{{ "%}" }}
+
+<!-- JS Code -->
+{{ "{%" }}block code{{ "%}" }}
+<script type='text/javascript'>
+
+    // Scroll to div
+    function scroll_to(location) {
+      console.log(location);
+        if (location !== undefined) {
+            const scrolldiv = $(location);
+            $('html,body').animate({scrollTop:scrolldiv.offset().top},1000, 'easeInOutExpo');
+        } else {
+            $('html,body').animate({scrollTop:0},1000, 'easeInOutExpo');
+        }
+
+    }
+
+</script>
+{{ "{%" }}endblock code{{ "%}" }}
+

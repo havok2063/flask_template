@@ -1,0 +1,15 @@
+{
+    "full_name": "John Doe",
+    "email": "myemail@here.com",
+    "repo_name": "flask_template",
+    "package_name": "mywebapp",
+    "version": "0.1.0dev",
+    "year": "2018",
+    "short_description": "Simple Template package for creating a minimal Flask web application",
+    "create_git_repo": ["yes", "no"],
+    "exists_on_github": ["no", "yes"],
+    "github_username": "",
+    "_copy_without_render": [
+        "*/_templates/*.html"
+    ]
+}
