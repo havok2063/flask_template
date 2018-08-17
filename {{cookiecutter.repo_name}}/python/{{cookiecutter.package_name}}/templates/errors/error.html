@@ -1,0 +1,23 @@
+{{ "{%" }}extends "layout.html"{{ "%}" }}
+
+{{ "{%" }}block head{{ "%}" }}
+{{ "{%" }}endblock head{{ "%}" }}
+
+{{ "{%" }}block body{{ "%}" }}
+
+    <div class='error'>
+        <div class='row'>
+
+            <div class='col-md-6 vert-offset-top-7' id='errortext'>
+                {{ "{%" }}block error{{ "%}" }}
+                {{ "{%" }}endblock error{{ "%}" }}
+
+                {{ "{%" }}if page{{ "%}" }}
+                    <h4>{{"{{page}}"}} page broke down!</h4>
+                {{ "{%" }}endif {{ "%}" }}
+            </div>
+
+        </div>
+    </div>
+
+{{ "{%" }}endblock body{{ "%}" }}

@@ -6,7 +6,7 @@
 # @Author: Brian Cherinka
 # @Date:   2018-08-16 11:43:42
 # @Last modified by:   Brian Cherinka
-# @Last Modified time: 2018-08-16 16:09:14
+# @Last Modified time: 2018-08-16 23:09:00
 
 from __future__ import print_function, division, absolute_import
 import pytest
@@ -22,6 +22,10 @@ def app():
 
 def test_app(client):
     assert client.get(url_for('index.home')).status_code == 200
+
+
+def test_404error(client):
+    assert client.get('help').status_code == 404
 
 
 def test_ok_status(client):

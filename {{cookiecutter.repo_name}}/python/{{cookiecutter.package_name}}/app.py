@@ -6,13 +6,14 @@
 # @Author: Brian Cherinka
 # @Date:   2018-05-15 10:51:48
 # @Last modified by:   Brian Cherinka
-# @Last Modified time: 2018-08-16 16:32:47
+# @Last Modified time: 2018-08-16 23:00:23
 
 from __future__ import print_function, division, absolute_import
 import os
 from flask import Flask
 from {{cookiecutter.package_name}}.controllers.index import index
 from {{cookiecutter.package_name}}.settings import ProdConfig, DevConfig, CustomConfig
+from {{cookiecutter.package_name}}.error_handlers import errors
 
 
 # set the package name and version
@@ -27,9 +28,9 @@ def create_app(debug=None, local=None, object_config=None):
     base = os.environ.get(f'{__name__.upper()}_BASE', __name__)
 
     # initiliaze the application
-    app = Flask(__name__, static_url_path='/{0}/static'.format(base))
+    app = Flask(__name__, static_url_path=f'/{base}/static')
     # set a url prefix
-    url_prefix = f'/{__name__}' if local else '/{0}'.format(base)
+    url_prefix = f'/{__name__}' if local else f'/{base}'
 
     # ----------------------------------
     # Load the appropriate Flask configuration object for debug or production
@@ -55,6 +56,7 @@ def register_blueprints(app, url_prefix=None):
     ''' Register the Flask Blueprints used '''
 
     app.register_blueprint(index, url_prefix=url_prefix)
+    app.register_blueprint(errors)
 
 
 def register_extensions(app, app_base=None):
